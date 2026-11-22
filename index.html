@@ -386,7 +386,27 @@
     // =========================================================================
     // KONFIGURASI API & STATE APLIKASI
     // =========================================================================
-    const apiKey = ""; // Disediakan otomatis oleh runtime environment
+    function getApiKey() {
+  return localStorage.getItem("berdikari_gemini_api_key") || "";
+}
+
+function simpanApiKey() {
+  const val = document.getElementById("geminiApiKeyInput").value.trim();
+  if (!val) {
+    alert("Silakan masukkan Gemini API Key terlebih dahulu.");
+    return;
+  }
+  localStorage.setItem("berdikari_gemini_api_key", val);
+  alert("API Key berhasil disimpan di perangkat ini!");
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const saved = getApiKey();
+  if (saved && document.getElementById("geminiApiKeyInput")) {
+    document.getElementById("geminiApiKeyInput").value = saved;
+  }
+});
+    
     const TEXT_MODEL = "gemini-2.5-flash";
     const TTS_MODELS = ["gemini-2.5-flash-preview-tts", "gemini-3.1-flash-tts-preview"];
 
