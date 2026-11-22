@@ -654,7 +654,7 @@ ATURAN WAJIB YANG HARUS DIPATUHI 100% (TIDAK BOLEH DILANGGAR):
 
     // Helper memanggil Gemini Text/Multimodal untuk JSON terstruktur
     async function generateStructuredNarration(partsArray) {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${apiKey}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${getApiKey()}`;
       const payload = {
         contents: [{ role: "user", parts: partsArray }],
         systemInstruction: { parts: [{ text: STRICT_NARRATION_RULES }] },
