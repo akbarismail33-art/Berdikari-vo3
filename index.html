@@ -855,7 +855,7 @@ Naskah yang harus dibacakan:
       let lastError = null;
       for (const modelName of TTS_MODELS) {
         try {
-          const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${getApiKey()}`;
           const payload = {
             contents: [{ parts: [{ text: promptInstruction }] }],
             generationConfig: {
